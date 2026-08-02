@@ -345,13 +345,5 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 # application.add_handler(MessageHandler(...))
 
 print("✅ Обработчики добавлены", flush=True)
-import asyncio
-
-# ... ваши add_handler команды ...
-
-# Запуск бота
-async def main():
-    await application.run_polling()
-
 if name == '__main__':
-    asyncio.run(main())
+    application.run_polling()
