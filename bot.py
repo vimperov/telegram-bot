@@ -6,17 +6,6 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 TOKEN = "8898626331:AAEHVDoej0mQl-nFmnz2z0vJKTf-GKfAmU"
 
-# ========= НАСТРОЙКА ПРОКСИ =========
-# Сейчас оставьте этот адрес. Если бот скажет "НЕ РАБОТАЕТ", замените его на следующий.
-PROXY_URL = "http://85.158.145.47:8080"
-
-from httpx import AsyncClient, HTTPTransport
-transport = HTTPTransport(proxy=PROXY_URL)
-http_client = AsyncClient(transport=transport)
-
-# ========= ЗАПУСК БОТА =========
-print("Пытаюсь запустить бота через прокси:", PROXY_URL)
-
 # ВНИМАНИЕ: В версии 21.7 метод называется .http_client (с нижним подчеркиванием)
 application = ApplicationBuilder().token(TOKEN).build()
 
