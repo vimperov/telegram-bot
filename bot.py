@@ -366,7 +366,7 @@ import asyncio  # Убедитесь, что эта строка есть в с�
 async def main():
     await application.run_polling()
 
-if name == '__main__':
+if __name__ == '__main__':
     try:
         asyncio.run(main())
     except RuntimeError as e:
@@ -375,4 +375,3 @@ if name == '__main__':
         else:
             print(f"❌ Ошибка: {e}")
     except Exception as e:
-        print(f"❌ Ошибка: {e}")
