@@ -347,20 +347,14 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 print("✅ Обработчики добавлены", flush=True)
 
 # 1. Закрываем функцию main() фигурной скобкой и отступом назад
-def main():
-    print("🔄 Начинаем запуск бота...", flush=True)
-    print("🐱 Создаём приложение...", flush=True)
-    application = Application.builder().token(BOT_TOKEN).build()
-    print("✅ Приложение создано", flush=True)
+def run_bot():
+    # Создаём новый цикл событий вручную
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    try:
+        application.run_polling()
+    finally:
+        loop.close()
 
-    print("📝 Добавляем обработчики...", flush=True)
-    # ... ваши add_handler команды ...
-    print("✅ Обработчики добавлены", flush=True)
-
-    print("🤖 OSINT-бот запущен!", flush=True)
-import asyncio  # Убедитесь, что эта строка есть в самом верху файла
-
-# ... (ваши add_handler команды) ...
-# ========== ЗАПУСК БОТА ==========
 if name == '__main__':
-    application.run_polling()
+    run_bot()
