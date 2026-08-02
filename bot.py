@@ -17,7 +17,6 @@ application.add_handler(CommandHandler("start", start))
 
 # ========= ЗАПУСК =========
 if __name__ == '__main__':
-    try:
         application.run_polling()
     except Exception as e:
         print(f"Бот упал с ошибкой: {e}")
