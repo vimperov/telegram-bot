@@ -18,18 +18,10 @@ application.add_handler(CommandHandler("start", start))
 # ========= ЗАПУСК =========
 if __name__ == '__main__':
         application.run_polling()
-    except Exception as e:
-        print(f"Бот упал с ошибкой: {e}")
-        print("Скорее всего, прокси НЕ РАБОТАЕТ. Замените PROXY_URL на новый IP.")
-
+    
 # Ваши обработчики команд
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Привет! Бот запущен!")
-
-application.add_handler(CommandHandler("start", start))
-
-# Запуск бота
-application.run_polling()
 
 # Кэш и состояния
 cache = {}
