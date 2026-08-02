@@ -340,10 +340,10 @@ def main():
     print("✅ Обработчики добавлены", flush=True)
 
     print("🤖 OSINT-бот запущен!", flush=True)
+def main():
     application.run_polling()
-
 # 2. Снаружи (без отступов, в самом низу) вызываем функцию
-if name == '__main__':
+if __name__ == '__main__':
     try:
         main()
     except RuntimeError as e:
