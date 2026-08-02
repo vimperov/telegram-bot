@@ -361,17 +361,6 @@ def main():
 import asyncio  # Убедитесь, что эта строка есть в самом верху файла
 
 # ... (ваши add_handler команды) ...
-
-# Запуск бота через asyncio
-async def main():
-    await application.run_polling()
-
-if __name__ == '__main__':
-    try:
-        asyncio.run(main())
-    except RuntimeError as e:
-        if "Event loop is closed" in str(e):
-            pass
-        else:
-            print(f"❌ Ошибка: {e}")
-    except Exception as e:
+# ========== ЗАПУСК БОТА ==========
+if name == '__main__':
+    application.run_polling()
