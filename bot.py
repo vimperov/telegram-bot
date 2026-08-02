@@ -340,14 +340,18 @@ def main():
     print("✅ Обработчики добавлены", flush=True)
 
     print("🤖 OSINT-бот запущен!", flush=True)
-def main():
-    application.run_polling()
-# 2. Снаружи (без отступов, в самом низу) вызываем функцию
-if __name__ == '__main__':
+import asyncio  # Убедитесь, что эта строка есть в самом верху файла
+
+# ... (ваши add_handler команды) ...
+
+# Запуск бота через asyncio
+async def main():
+    await application.run_polling()
+
+if name == '__main__':
     try:
-        main()
+        asyncio.run(main())
     except RuntimeError as e:
-        # Игнорируем ошибку "Event loop is closed", так как она возникает только при выключении
         if "Event loop is closed" in str(e):
             pass
         else:
