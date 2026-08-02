@@ -34,7 +34,7 @@ async def run_bot():
 def start_bot():
     asyncio.run(run_bot())
 
-if name == '__main__':
+if __name__ == '__main__':
     start_bot()
     
 # Ваши обработчики команд
