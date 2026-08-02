@@ -6,18 +6,36 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 TOKEN = "8898626331:AAEHVDoej0mQl-nFmnz2z0vJKTf-GKfAmU"
 
-# ВНИМАНИЕ: В версии 21.7 метод называется .http_client (с нижним подчеркиванием)
+# Создаём объект бота
 application = ApplicationBuilder().token(TOKEN).build()
 
-# ========= ВАШИ КОМАНДЫ =========
+# ----------------------------------------
+# ВАШИ ОБРАБОТЧИКИ КОМАНД (оставляем как есть)
+# ----------------------------------------
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Бот успешно запущен и работает!")
 
 application.add_handler(CommandHandler("start", start))
 
-# ========= ЗАПУСК =========
-if __name__ == '__main__':
-        application.run_polling()
+# ... (остальные ваши add_handler команды) ...
+
+# ----------------------------------------
+# ИДЕАЛЬНЫЙ ЗАПУСК ДЛЯ PYTHON 3.14
+# ----------------------------------------
+async def run_bot():
+    # Мы принудительно создаём цикл событий ДО запуска библиотеки
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    try:
+        await application.run_polling()
+    finally:
+        loop.close()
+
+def start_bot():
+    asyncio.run(run_bot())
+
+if name == '__main__':
+    start_bot()
     
 # Ваши обработчики команд
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
